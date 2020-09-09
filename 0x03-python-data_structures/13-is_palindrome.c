@@ -9,7 +9,7 @@ int len(listint_t *head)
 	int counter;
 
 	if (!head)
-		return (EXIT_FAILURE);
+		return (0);
 	for (counter = 0; head; counter++)
 		head = head->next;
 
