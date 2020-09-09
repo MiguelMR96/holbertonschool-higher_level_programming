@@ -25,9 +25,9 @@ int is_palindrome(listint_t **head)
 	listint_t *aux = *head;
 	int size = len(aux);
 
-	int array[1024], index;
+	int array[3000], index;
 	int i = 0;
-	
+
 	for (index = 0; aux; index++)
 	{
 		array[index] = aux->n;
@@ -47,5 +47,5 @@ int is_palindrome(listint_t **head)
 	if (i == size / 2)
 		return (1);
 
-	return(0);
+	return (0);
 }
