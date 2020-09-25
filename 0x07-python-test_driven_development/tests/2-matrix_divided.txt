@@ -1,0 +1,72 @@
+========================================================================
+'Test for 0-add_integer module'
+========================================================================
+'Funtion to test:   add_integer()'
+========================================================================
+
+'Import'
+
+>>> matrix_divided = __import__('2-matrix_divided').matrix_divided
+
+'Test simple positive and negative cases'
+
+>>> matrix = [[1, 2, 3], [4, 5, 6]]
+
+>>> matrix_divided(matrix, 3)
+[[0.33, 0.67, 1.0], [1.33, 1.67, 2.0]]
+
+>>> matrix_divided(matrix, -3)
+[[-0.33, -0.67, -1.0], [-1.33, -1.67, -2.0]]
+
+'Test different len inside matrix'
+
+>>> matrix = [[1, 2, 3], [5, 6]]
+
+>>> matrix_divided(matrix, 3)
+Traceback (most recent call last):
+...
+TypeError: Each row of the matrix must have the same size
+
+'Matrix different of list'
+
+>>> matrix = {'id': [1485, 1990]}
+
+>>> matrix_divided(matrix, 3)
+Traceback (most recent call last):
+...
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+'Matrix with list and tuple'
+>>> matrix = [[1, 2, 3], (1, 2, 3)]
+
+>>> matrix_divided(matrix, 3)
+Traceback (most recent call last):
+...
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+'String inside list'
+
+>>> matrix = [[1, 2, 3], ["Miguel", "Montoya", "Holberton"]]
+
+>>> matrix_divided(matrix, 3)
+Traceback (most recent call last):
+...
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+'Division by 0'
+
+>>> matrix = [[1, 2, 3], [4, 5, 6]]
+
+>>> matrix_divided(matrix, 0)
+Traceback (most recent call last):
+...
+ZeroDivisionError: division by zero
+
+'div different of a number'
+
+>>> matrix = [[1, 2, 3], [4, 5, 6]]
+
+>>> matrix_divided(matrix, 'A')
+Traceback (most recent call last):
+...
+TypeError: div must be a number
