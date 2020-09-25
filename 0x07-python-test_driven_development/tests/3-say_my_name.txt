@@ -1,0 +1,37 @@
+========================================================================
+'Test for 3-say_my_name'
+========================================================================
+'Funtion to test:   say_my_name'
+========================================================================
+
+'Import'
+
+>>> say_my_name = __import__('3-say_my_name').say_my_name
+
+'Test normal case with first and last name strings'
+
+>>> say_my_name("Miguel", "Montoya")
+My name is Miguel Montoya
+
+'Test sending integer instead of string'
+
+>>> say_my_name(10, "Montoya")
+Traceback (most recent call last):
+...
+TypeError: first_name must be a string
+
+>>> say_my_name("Miguel", 10)
+Traceback (most recent call last):
+...
+TypeError: last_name must be a string
+
+'Sending just one argument'
+
+>>> say_my_name("Miguel")
+My name is Miguel 
+
+>>> say_my_name("", "Montoya")
+My name is  Montoya
+
+>>> say_my_name("")
+My name is  
