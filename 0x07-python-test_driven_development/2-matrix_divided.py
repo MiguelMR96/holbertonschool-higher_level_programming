@@ -31,11 +31,11 @@ def matrix_divided(matrix, div):
     new_matrix = []
     new_list = []
     for row in matrix:
-        if len(row) != len(matrix[0]):
-            raise TypeError('Each row of the matrix must have the same size')
         if type(row) != list:
             raise TypeError(
                 'matrix must be a matrix (list of lists) of integers/floats')
+        if len(row) != len(matrix[0]):
+            raise TypeError('Each row of the matrix must have the same size')
         for item in row:
             if type(item) not in [int, float]:
                 raise TypeError(
