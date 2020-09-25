@@ -2,6 +2,7 @@
 """ Indent text when hit ".", ":", "?"
 """
 
+
 def text_indentation(text):
     """ Indent text when hit ".", ":", "?"
 
