@@ -96,3 +96,6 @@ TypeError: matrix_divided() missing 1 required positional argument: 'div'
 Traceback (most recent call last):
 ...
 TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+>>> matrix_divided([[4, 56, 100], [45,5, 55]], float('inf'))
+[[0.0, 0.0, 0.0], [0.0, 0.0, 0.0]]
