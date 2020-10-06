@@ -8,3 +8,35 @@
 
 >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
 
+'Test method area'
+
+>>> bg = BaseGeometry()
+>>> bg.area()
+Traceback (most recent call last):
+...
+Exception: area() is not implemented
+
+'Test integer_validator method'
+
+>>> bg.integer_validator("my_int", 12)
+
+'Test integer_validator with negative integer'
+
+>>> bg.integer_validator("my_int", -4)
+Traceback (most recent call last):
+...
+ValueError: my_int must be greater than 0
+
+'Test integer_validator different from int value'
+
+>>> bg.integer_validator("my_name", "Miguel")
+Traceback (most recent call last):
+...
+TypeError: my_name must be an integer
+
+'Test integer_validator with 0 as value'
+
+>>> bg.integer_validator("my_int", 0)
+Traceback (most recent call last):
+...
+ValueError: my_int must be greater than 0
