@@ -9,5 +9,6 @@ class MyList(list):
     Args:
         list ([type]): [description]
     """
+
     def print_sorted(self):
         print(sorted(self))
