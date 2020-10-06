@@ -40,3 +40,10 @@ TypeError: my_name must be an integer
 Traceback (most recent call last):
 ...
 ValueError: my_int must be greater than 0
+
+'integer_validator method without arguments'
+
+>>> bg.integer_validator()
+Traceback (most recent call last):
+...
+TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
