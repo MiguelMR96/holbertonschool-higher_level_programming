@@ -6,6 +6,7 @@
 class BaseGeometry():
     """ Empty base class
     """
+
     def area(self):
         """raise exceptions
 
