@@ -1,0 +1,56 @@
+========================================================================
+'Test for 0-add_integer module'
+========================================================================
+'Funtion to test:   add_integer()'
+========================================================================
+
+'Import class MyList'
+
+>>> MyList = __import__('1-my_list').MyList
+
+'Empty List'
+
+>>> my_list = MyList()
+>>> print(my_list)
+[]
+
+'Print the list and testing the print_sorted method'
+
+>>> my_list = MyList([7, 0, 9, 4, 1, 20, 10])
+>>> print(my_list)
+[7, 0, 9, 4, 1, 20, 10]
+
+>>> my_list = MyList([10, 5, 6, 9, 4, 3, 1, 2, 8, 7])
+>>> my_list.print_sorted()
+[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+>>> l = MyList()
+>>> l.append(666)
+>>> l.append(-666)
+>>> l.append(333 * 2)
+>>> l
+[666, -666, 666]
+>>> l.append(1)
+>>> l.append(2)
+>>> l
+[666, -666, 666, 1, 2]
+>>> l.print_sorted()
+[-666, 1, 2, 666, 666]
+
+'test empty list in print_sorted method'
+
+>>> l = MyList()
+>>> l.print_sorted()
+[]
+
+'print_sorted regular lists with negative integers'
+
+>>> l = MyList()
+>>> l.append(8)
+>>> l.append(1)
+>>> l
+[8, 1]
+>>> l.print_sorted()
+[1, 8]
+>>> l
+[8, 1]
