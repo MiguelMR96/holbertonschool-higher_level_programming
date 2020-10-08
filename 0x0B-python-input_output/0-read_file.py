@@ -9,7 +9,6 @@ def read_file(filename=""):
     Args:
         filename (str): Text file's name. Defaults to "".
     """
-    with open(filename, 'r') as f:
-        read_data = f.read()
-
-        print("{}".format(read_data))
+    with open(filename, 'r') as fd:
+        for line in fd:
+            print(line, end="")
