@@ -43,9 +43,7 @@ class Base:
         with open(cls.__name__ + '.json', 'w') as fd:
             if not list_objs:
                 return fd.write(cls.to_json_string(new_l))
-            for i in list_objs:
-                dic = cls.to_dictionary(i)
-                new_l.append(dic)
+            new_l = [cls.to_dictionary(i) for i in list_objs]
             return fd.write(cls.to_json_string(new_l))
 
     @staticmethod
@@ -96,7 +94,7 @@ class Base:
 
         with open(cls.__name__ + '.csv', 'w') as fd:
             if list_objs:
-                new_l = [i.to_dictionary() for i in list_objs]
+                new_l = [cls.to_dictionary(i) for i in list_objs]
             return fd.write(cls.to_json_string(new_l))
 
     @classmethod
