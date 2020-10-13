@@ -84,3 +84,31 @@ class Base:
                 for x in list_json:
                     new_l.append(cls.create(**x))
         return new_l
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """serializes in CSV
+
+        Args:
+            list_objs (obj): list of objects
+        """
+        new_l = []
+
+        with open(cls.__name__ + '.csv', 'w') as fd:
+            if list_objs:
+                new_l = [i.to_dictionary() for i in list_objs]
+            fd.write(cls.to_json_string(new_l))
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """ deserializes in CSV
+        """
+        new_l = []
+
+        if os.path.isfile(cls.__name__ + '.csv'):
+            with open(cls.__name__ + '.csv', 'r') as fd:
+                string = fd.read()
+                list_csv = cls.from_json_string(string)
+                for i in list_csv:
+                    new_l.append(cls.create(**i))
+        return new_l
