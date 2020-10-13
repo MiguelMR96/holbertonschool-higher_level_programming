@@ -43,7 +43,7 @@ class Base:
 
         with open(cls.__name__ + '.json', 'w') as fd:
             if not list_objs:
-                return fd.write(new_l)
+                return fd.write(cls.to_json_string(new_l))
             for i in list_objs:
                 dic = cls.to_dictionary(i)
                 new_l.append(dic)
@@ -59,3 +59,15 @@ class Base:
         if not json_string or len(json_string) == 0:
             return ([])
         return json.loads(json_string)
+
+    @classmethod
+    def create(cls, **dictionary):
+        """ Returns an instance with all attributes already set
+        """
+        if cls.__name__ == 'Rectangle':
+            tmp = cls(1, 1)
+        elif cls.__name__ == 'Square':
+            tmp = cls(1)
+
+        tmp.update(**dictionary)
+        return tmp
