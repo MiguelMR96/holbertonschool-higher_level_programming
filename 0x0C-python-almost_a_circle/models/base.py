@@ -48,3 +48,14 @@ class Base:
                 dic = cls.to_dictionary(i)
                 new_l.append(dic)
             return fd.write(cls.to_json_string(new_l))
+
+    @staticmethod
+    def from_json_string(json_string):
+        """ Returns the list of the JSON string representation
+
+        Args:
+            json_string (json): string representing a list of dictionaries
+        """
+        if not json_string or len(json_string) == 0:
+            return ([])
+        return json.loads(json_string)
