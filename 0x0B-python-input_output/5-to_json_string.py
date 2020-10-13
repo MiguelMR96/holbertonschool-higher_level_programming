@@ -1,8 +1,6 @@
 #!/usr/bin/python3
 """ Returns in a json string representation
 """
-
-
 import json
 
 
