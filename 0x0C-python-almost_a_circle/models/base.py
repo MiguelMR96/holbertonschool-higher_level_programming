@@ -97,7 +97,7 @@ class Base:
         with open(cls.__name__ + '.csv', 'w') as fd:
             if list_objs:
                 new_l = [i.to_dictionary() for i in list_objs]
-            fd.write(cls.to_json_string(new_l))
+            return fd.write(cls.to_json_string(new_l))
 
     @classmethod
     def load_from_file_csv(cls):
