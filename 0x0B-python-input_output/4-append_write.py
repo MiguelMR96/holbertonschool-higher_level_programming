@@ -11,5 +11,5 @@ def append_write(filename="", text=""):
         Defaults to "".
         text (str): Text to append. Defaults to "".
     """
-    with open(filename, mode='w') as fd:
+    with open(filename, mode='a') as fd:
         return fd.write(text)
