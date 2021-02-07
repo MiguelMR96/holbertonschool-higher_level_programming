@@ -10,6 +10,11 @@ Base = declarative_base()
 
 
 class State(Base):
+    """[summary]
+
+    Args:
+        Base ([type]): [description]
+    """
     __tablename__ = 'states'
     id = sqlalchemy.Column(sqlalchemy.Integer, primary_key=True,
                            unique=True, nullable=False,
