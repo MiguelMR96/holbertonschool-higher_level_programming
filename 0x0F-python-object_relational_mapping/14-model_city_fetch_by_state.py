@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-"""This module makes a query from MySQL"""
+"""This module makes a query from MySQL
+"""
 
 
 if __name__ == "__main__":

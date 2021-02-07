@@ -5,7 +5,10 @@ from relationship_state import Base
 
 
 class City(Base):
-    """City class
+    """[summary]
+
+    Args:
+        Base ([type]): [description]
     """
     __tablename__ = "cities"
     id = Column(
