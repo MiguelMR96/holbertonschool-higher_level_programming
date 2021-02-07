@@ -3,15 +3,21 @@
 to http://0.0.0.0:5000/search_user with the letter as a parameter.
 """
 import requests
-from sys import argv
+import sys
 
-if __name__ == "__main__":
-    letter = ""
-    if len(argv) > 1 and argv[1].isalpha():
-        letter = argv[1]
-        req = requests.post('http://0.0.0.0:5000/search_user',
-                            data={'q': letter})
-        json_format = req.json()
-        print("[{}] {}".format(json_format.get('id'), json_format.get('name')))
+
+if __name__ == '__main__':
+    url = 'http://0.0.0.0:5000/search_user'
+    if len(sys.argv) == 2:
+        q = sys.argv[1]
     else:
-        print("No result")
+        q = ''
+    request = requests.post(url, data={'q': q})
+    try:
+        response = request.json()
+        if len(response) == 0:
+            print('No result')
+        else:
+            print('[{}] {}'.format(response.get('id'), response.get('name')))
+    except:
+        print('Not a valid JSON')
