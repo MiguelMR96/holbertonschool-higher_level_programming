@@ -10,9 +10,9 @@ request.get(url, (err, response) => {
     return console.log(err);
   }
   const jsonData = JSON.parse(response.body);
-  for (let step = 0; jsonData.results[step]; step++) {
-    for (let j = 0; jsonData.results[step].characters[j]; j++) {
-      if (jsonData.results[step].characters[j] === 'https://swapi-api.hbtn.io/api/people/18/') {
+  for (let i = 0; jsonData.results[i]; i++) {
+    for (let j = 0; jsonData.results[i].characters[j]; j++) {
+      if (jsonData.results[i].characters[j] === 'https://swapi-api.hbtn.io/api/people/18/') {
         count++;
       }
     }
