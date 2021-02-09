@@ -3,23 +3,19 @@
 
 const request = require('request');
 const url = process.argv[2];
-const wedgeUrl = 'https://swapi.co/api/people/18/';
-let i = 0;
-let matchCount = 0;
+let count = 0;
 
-request.get(url, function (err, res, results) {
+request.get(url, (err, response) => {
   if (err) {
     return console.log(err);
   }
-  const jsonFormat = JSON.parse(results);
-  const movieList = jsonFormat.results;
-  for (; i < movieList.length; i++) {
-    const charList = movieList[i].characters;
-    for (let j = 0; j < charList.length; j++) {
-      if (charList[j] === wedgeUrl) {
-        matchCount++;
+  const jsonData = JSON.parse(response.body);
+  for (let i = 0; jsonData.results[i]; i++) {
+    for (let j = 0; jsonData.results[i].characters[j]; j++) {
+      if (jsonData.results[i].characters[j] === 'https://swapi-api.hbtn.io/api/people/18/') {
+        count++;
       }
     }
   }
-  console.log(matchCount);
+  return console.log(count);
 });
