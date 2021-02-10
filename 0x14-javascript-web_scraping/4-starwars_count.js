@@ -1,21 +1,20 @@
 #!/usr/bin/node
 // Prints the number of movies where the character “Wedge Antilles” is present.
 
-const request = require('request');
-const url = process.argv[2];
-let count = 0;
-
-request.get(url, (err, response) => {
+require('request').get(process.argv[2], function (err, r, body) {
   if (err) {
-    return console.log(err);
-  }
-  const jsonData = JSON.parse(response.body);
-  for (let i = 0; jsonData.results[i]; i++) {
-    for (let j = 0; jsonData.results[i].characters[j]; j++) {
-      if (jsonData.results[i].characters[j] === 'https://swapi-api.hbtn.io/api/people/18/') {
-        count++;
+    console.log(err);
+  } else {
+    let counter = 0;
+    const data = JSON.parse(body).results;
+    for (let i = 0; i < data.length; i++) {
+      for (let n = 0; n < data[i].characters.length; n++) {
+        if (data[i].characters[n].includes('/18/')) {
+          counter++;
+          break;
+        }
       }
     }
+    console.log(counter);
   }
-  return console.log(count);
 });
